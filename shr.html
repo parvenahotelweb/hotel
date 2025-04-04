@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เลือกประเภทที่พัก</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #ffa500;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .option-button {
+      background-color: #ffa500;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 250px;
+      text-align: center;
+    }
+
+    .option-button:hover {
+      background-color: #ff8c00;
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+    }
+
+    .language-switch button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .language-switch img {
+      width: 30px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switch">
+    <button onclick="setLanguage('th')">
+      <img src="picture/thaiflag.jpg" alt="ไทย">
+    </button>
+    <button onclick="setLanguage('en')">
+      <img src="picture/englandflag.png" alt="English">
+    </button>
+    <button onclick="setLanguage('zh')">
+      <img src="picture/chinaflag.png" alt="中文">
+    </button>
+  </div>
+
+  <header>
+    <h1 id="header-text">เลือกประเภทที่พัก</h1>
+  </header>
+
+  <div class="button-container">
+    <button class="option-button" onclick="goToPage('daily-room')" id="daily-room-button">ห้องพักรายวัน</button>
+    <button class="option-button" onclick="goToPage('monthly-room')" id="monthly-room-button">ห้องพักรายเดือน</button>
+    <button class="option-button" onclick="goToPage('condo-monthly')" id="condo-monthly-button">เช่าคอนโดรายเดือน</button>
+  </div>
+
+  <script>
+    const translations = {
+      th: {
+        header: "เลือกประเภทที่พัก",
+        dailyRoom: "ห้องพักรายวัน",
+        monthlyRoom: "ห้องพักรายเดือน",
+        condoMonthly: "เช่าคอนโดรายเดือน"
+      },
+      en: {
+        header: "Choose Accommodation Type",
+        dailyRoom: "Daily Room",
+        monthlyRoom: "Monthly Room",
+        condoMonthly: "Monthly Condo Rental"
+      },
+      zh: {
+        header: "选择住宿类型",
+        dailyRoom: "每日房间",
+        monthlyRoom: "每月房间",
+        condoMonthly: "每月租赁公寓"
+      }
+    };
+
+    function setLanguage(lang) {
+      const texts = translations[lang];
+      if (texts) {
+        document.getElementById('header-text').innerText = texts.header;
+        document.getElementById('daily-room-button').innerText = texts.dailyRoom;
+        document.getElementById('monthly-room-button').innerText = texts.monthlyRoom;
+        document.getElementById('condo-monthly-button').innerText = texts.condoMonthly;
+      }
+    }
+
+    function goToPage(type) {
+      if (type === 'daily-room') {
+        window.location.href = "daily-room.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายวัน
+      } else if (type === 'monthly-room') {
+        window.location.href = "monthly-room.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายเดือน
+      } else if (type === 'condo-monthly') {
+        window.location.href = "condo-monthly.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }
+    }
+  </script>
+</body>
+</html>
