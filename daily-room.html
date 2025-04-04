@@ -20,7 +20,7 @@
 
     .hotel-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์สำหรับหน้าจอใหญ่ */
+      grid-template-columns: repeat(3, 1fr); /* แถวแรก 3 อัน */
       grid-gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
@@ -97,28 +97,7 @@
     /* สำหรับหน้าจอมือถือ */
     @media (max-width: 768px) {
       .hotel-list {
-        display: flex;
-        overflow-x: auto; /* ทำให้สามารถเลื่อนในแนวนอนได้ */
-        padding: 10px;
-        gap: 20px;
-      }
-
-      .hotel-card {
-        min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
-        flex: 0 0 auto; /* ทำให้ไม่ยืดหรือลดขนาดเมื่อเลื่อน */
-      }
-
-      .hotel-list::-webkit-scrollbar {
-        height: 8px;
-      }
-
-      .hotel-list::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-      }
-
-      .hotel-list::-webkit-scrollbar-thumb:hover {
-        background: #555;
+        grid-template-columns: 1fr; /* ในมือถือ จะแสดง 1 โรงแรมต่อแถว */
       }
     }
   </style>
