@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ห้องพักรายวัน</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #ffa500;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hotel-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .hotel-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.3s;
+    }
+
+    .hotel-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .hotel-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .hotel-card .info {
+      padding: 15px;
+    }
+
+    .hotel-card .info h3 {
+      margin: 0 0 10px;
+    }
+
+    .hotel-card .info p {
+      margin: 0 0 10px;
+      color: #666;
+    }
+
+    .hotel-card .info button {
+      background-color: #ffa500;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hotel-card .info button:hover {
+      background-color: #ff8c00;
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+    }
+
+    .language-switch button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .language-switch img {
+      width: 30px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switch">
+    <button onclick="setLanguage('th')">
+      <img src="thaiflag.jpg" alt="ไทย">
+    </button>
+    <button onclick="setLanguage('en')">
+      <img src="englandflag.png" alt="English">
+    </button>
+    <button onclick="setLanguage('zh')">
+      <img src="chinaflag.png" alt="中文">
+    </button>
+  </div>
+
+  <header>
+    <h1 id="header-text">เลือกห้องพักรายวัน</h1>
+  </header>
+
+  <div class="hotel-list">
+    <div class="hotel-card">
+      <img src="picture/hotel1.jpg" alt="ห้องพัก A">
+      <div class="info">
+        <h3 id="hotel-a">ห้องพัก A</h3>
+        <p id="desc-a">ห้องพักสะดวกสบาย ใจกลางเมือง</p>
+        <button onclick="selectHotel('ห้องพัก A')">เลือก</button>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <img src="picture/hotel2.jpg" alt="ห้องพัก B">
+      <div class="info">
+        <h3 id="hotel-b">ห้องพัก B</h3>
+        <p id="desc-b">วิวสวยงาม ใกล้สถานที่ท่องเที่ยว</p>
+        <button onclick="selectHotel('ห้องพัก B')">เลือก</button>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <img src="picture/hotel3.jpg" alt="ห้องพัก C">
+      <div class="info">
+        <h3 id="hotel-c">ห้องพัก C</h3>
+        <p id="desc-c">บริการประทับใจ ราคาเป็นมิตร</p>
+        <button onclick="selectHotel('ห้องพัก C')">เลือก</button>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <img src="picture/hotel4.jpg" alt="ห้องพัก D">
+      <div class="info">
+        <h3 id="hotel-d">ห้องพัก D</h3>
+        <p id="desc-d">ห้องพักหรูหรา พร้อมสิ่งอำนวยความสะดวกครบครัน</p>
+        <button onclick="selectHotel('ห้องพัก D')">เลือก</button>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <img src="picture/hotel5.jpg" alt="ห้องพัก E">
+      <div class="info">
+        <h3 id="hotel-e">ห้องพัก E</h3>
+        <p id="desc-e">ห้องพักสะอาด และบริการดี</p>
+        <button onclick="selectHotel('ห้องพัก E')">เลือก</button>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <img src="picture/hotel6.jpg" alt="ห้องพัก F">
+      <div class="info">
+        <h3 id="hotel-f">ห้องพัก F</h3>
+        <p id="desc-f">ห้องพักขนาดกลาง ราคาประหยัด</p>
+        <button onclick="selectHotel('ห้องพัก F')">เลือก</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      th: {
+        header: "เลือกห้องพักรายวัน",
+        hotelA: "ห้องพัก A",
+        descA: "ห้องพักสะดวกสบาย ใจกลางเมือง",
+        hotelB: "ห้องพัก B",
+        descB: "วิวสวยงาม ใกล้สถานที่ท่องเที่ยว",
+        hotelC: "ห้องพัก C",
+        descC: "บริการประทับใจ ราคาเป็นมิตร",
+        hotelD: "ห้องพัก D",
+        descD: "ห้องพักหรูหรา พร้อมสิ่งอำนวยความสะดวกครบครัน",
+        hotelE: "ห้องพัก E",
+        descE: "ห้องพักสะอาด และบริการดี",
+        hotelF: "ห้องพัก F",
+        descF: "ห้องพักขนาดกลาง ราคาประหยัด",
+        select: "เลือก"
+      },
+      en: {
+        header: "Daily Room Rentals",
+        hotelA: "Room A",
+        descA: "Comfortable rooms in the city center",
+        hotelB: "Room B",
+        descB: "Beautiful view, close to attractions",
+        hotelC: "Room C",
+        descC: "Excellent service, affordable price",
+        hotelD: "Room D",
+        descD: "Luxurious room with full amenities",
+        hotelE: "Room E",
+        descE: "Clean room with great service",
+        hotelF: "Room F",
+        descF: "Medium-sized room, affordable price",
+        select: "Select"
+      },
+      zh: {
+        header: "每日客房出租",
+        hotelA: "房间 A",
+        descA: "市中心舒适的客房",
+        hotelB: "房间 B",
+        descB: "风景优美，靠近景点",
+        hotelC: "房间 C",
+        descC: "服务周到，价格实惠",
+        hotelD: "房间 D",
+        descD: "豪华客房，设施齐全",
+        hotelE: "房间 E",
+        descE: "干净的房间和优质服务",
+        hotelF: "房间 F",
+        descF: "中等大小，价格亲民",
+        select: "选择"
+      }
+    };
+
+    function setLanguage(lang) {
+      const texts = translations[lang];
+      if (texts) {
+        document.getElementById('header-text').innerText = texts.header;
+        document.getElementById('hotel-a').innerText = texts.hotelA;
+        document.getElementById('desc-a').innerText = texts.descA;
+        document.getElementById('hotel-b').innerText = texts.hotelB;
+        document.getElementById('desc-b').innerText = texts.descB;
+        document.getElementById('hotel-c').innerText = texts.hotelC;
+        document.getElementById('desc-c').innerText = texts.descC;
+        document.getElementById('hotel-d').innerText = texts.hotelD;
+        document.getElementById('desc-d').innerText = texts.descD;
+        document.getElementById('hotel-e').innerText = texts.hotelE;
+        document.getElementById('desc-e').innerText = texts.descE;
+        document.getElementById('hotel-f').innerText = texts.hotelF;
+        document.getElementById('desc-f').innerText = texts.descF;
+
+        const buttons = document.querySelectorAll('.hotel-card .info button');
+        buttons.forEach(button => {
+          button.innerText = texts.select;
+        });
+      }
+    }
+
+    function selectHotel(name) {
+      alert("คุณเลือก " + name);
+    }
+  </script>
+</body>
+</html>
