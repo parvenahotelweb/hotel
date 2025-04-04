@@ -19,13 +19,12 @@
     }
 
     .hotel-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์สำหรับหน้าจอใหญ่ */
+      grid-gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
-      gap: 20px;
     }
 
     .hotel-card {
@@ -33,7 +32,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      width: 300px;
+      width: 100%;
       transition: transform 0.3s;
     }
 
@@ -94,6 +93,34 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+
+    /* สำหรับหน้าจอมือถือ */
+    @media (max-width: 768px) {
+      .hotel-list {
+        display: flex;
+        overflow-x: auto; /* ทำให้สามารถเลื่อนในแนวนอนได้ */
+        padding: 10px;
+        gap: 20px;
+      }
+
+      .hotel-card {
+        min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+        flex: 0 0 auto; /* ทำให้ไม่ยืดหรือลดขนาดเมื่อเลื่อน */
+      }
+
+      .hotel-list::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .hotel-list::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+
+      .hotel-list::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    }
   </style>
 </head>
 <body>
@@ -115,56 +142,66 @@
 
   <div class="hotel-list">
     <div class="hotel-card">
-      <img src="picture/hotel1.jpg" alt="ห้องพัก A">
+      <img src="pavenahotel.webp" alt="โรงแรม พาร์วีน่า สาทร">
       <div class="info">
-        <h3 id="hotel-a">ห้องพัก A</h3>
-        <p id="desc-a">ห้องพักสะดวกสบาย ใจกลางเมือง</p>
-        <button onclick="selectHotel('ห้องพัก A')">เลือก</button>
+        <h3 id="hotel-a">โรงแรม พาร์วีน่า สาทร</h3>
+        <p id="desc-a">ห้องพักสะอาด สะดวกสบาย ใจกลางเมือง</p>
+        <button onclick="selectHotel('โรงแรม พาร์วีน่า สาทร')">เลือก</button>
       </div>
     </div>
 
     <div class="hotel-card">
-      <img src="picture/hotel2.jpg" alt="ห้องพัก B">
+      <img src="picture/hotel2.jpg" alt="บ้านพูลสุข">
       <div class="info">
-        <h3 id="hotel-b">ห้องพัก B</h3>
+        <h3 id="hotel-b">บ้านพูลสุข</h3>
         <p id="desc-b">วิวสวยงาม ใกล้สถานที่ท่องเที่ยว</p>
-        <button onclick="selectHotel('ห้องพัก B')">เลือก</button>
+        <button onclick="selectHotel('บ้านพูลสุข')">เลือก</button>
       </div>
     </div>
 
     <div class="hotel-card">
-      <img src="picture/hotel3.jpg" alt="ห้องพัก C">
+      <img src="picture/hotel3.jpg" alt="ไรซ์ เพสต์">
       <div class="info">
-        <h3 id="hotel-c">ห้องพัก C</h3>
+        <h3 id="hotel-c">ไรซ์ เพสต์</h3>
         <p id="desc-c">บริการประทับใจ ราคาเป็นมิตร</p>
-        <button onclick="selectHotel('ห้องพัก C')">เลือก</button>
+        <button onclick="selectHotel('ไรซ์ เพสต์')">เลือก</button>
       </div>
     </div>
 
     <div class="hotel-card">
-      <img src="picture/hotel4.jpg" alt="ห้องพัก D">
+      <img src="picture/hotel4.jpg" alt="พาร์วีน่า รัชดา">
       <div class="info">
-        <h3 id="hotel-d">ห้องพัก D</h3>
+        <h3 id="hotel-d">พาร์วีน่า รัชดา D</h3>
         <p id="desc-d">ห้องพักหรูหรา พร้อมสิ่งอำนวยความสะดวกครบครัน</p>
-        <button onclick="selectHotel('ห้องพัก D')">เลือก</button>
+        <button onclick="selectHotel('พาร์วีน่า รัชดา')">เลือก</button>
       </div>
     </div>
 
     <div class="hotel-card">
-      <img src="picture/hotel5.jpg" alt="ห้องพัก E">
+      <img src="picture/hotel5.jpg" alt="เคที แมนชั่น">
       <div class="info">
-        <h3 id="hotel-e">ห้องพัก E</h3>
+        <h3 id="hotel-e">เคที แมนชั่น</h3>
         <p id="desc-e">ห้องพักสะอาด และบริการดี</p>
-        <button onclick="selectHotel('ห้องพัก E')">เลือก</button>
+        <button onclick="selectHotel('เคที แมนชั่น')">เลือก</button>
       </div>
     </div>
 
     <div class="hotel-card">
-      <img src="picture/hotel6.jpg" alt="ห้องพัก F">
+      <img src="picture/hotel6.jpg" alt="บ้านสวนกัลยา">
       <div class="info">
-        <h3 id="hotel-f">ห้องพัก F</h3>
+        <h3 id="hotel-f">บ้านสวนกัลยา</h3>
         <p id="desc-f">ห้องพักขนาดกลาง ราคาประหยัด</p>
-        <button onclick="selectHotel('ห้องพัก F')">เลือก</button>
+        <button onclick="selectHotel('บ้านสวนกัลยา')">เลือก</button>
+      </div>
+    </div>
+
+    <!-- เพิ่มห้องพักใหม่ -->
+    <div class="hotel-card">
+      <img src="picture/hotel7.jpg" alt="ปาวีณา แมนชั่น">
+      <div class="info">
+        <h3 id="ปาวีณา แมนชั่น">ปาวีณา แมนชั่น</h3>
+        <p id="desc-g">ที่พักสะดวกสบาย เหมาะสำหรับทุกการเดินทาง</p>
+        <button onclick="selectHotel('ปาวีณา แมนชั่น')">เลือก</button>
       </div>
     </div>
   </div>
@@ -185,6 +222,8 @@
         descE: "ห้องพักสะอาด และบริการดี",
         hotelF: "ห้องพัก F",
         descF: "ห้องพักขนาดกลาง ราคาประหยัด",
+        hotelG: "ห้องพัก G",
+        descG: "ที่พักสะดวกสบาย เหมาะสำหรับทุกการเดินทาง",
         select: "เลือก"
       },
       en: {
@@ -201,6 +240,8 @@
         descE: "Clean room with great service",
         hotelF: "Room F",
         descF: "Medium-sized room, affordable price",
+        hotelG: "Room G",
+        descG: "Comfortable stay, perfect for any trip",
         select: "Select"
       },
       zh: {
@@ -217,6 +258,8 @@
         descE: "干净的房间和优质服务",
         hotelF: "房间 F",
         descF: "中等大小，价格亲民",
+        hotelG: "房间 G",
+        descG: "舒适的住宿，适合任何旅行",
         select: "选择"
       }
     };
@@ -237,6 +280,8 @@
         document.getElementById('desc-e').innerText = texts.descE;
         document.getElementById('hotel-f').innerText = texts.hotelF;
         document.getElementById('desc-f').innerText = texts.descF;
+        document.getElementById('hotel-g').innerText = texts.hotelG;
+        document.getElementById('desc-g').innerText = texts.descG;
 
         const buttons = document.querySelectorAll('.hotel-card .info button');
         buttons.forEach(button => {
