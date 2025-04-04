@@ -85,9 +85,9 @@
   </header>
 
   <div class="button-container">
-    <button class="option-button" onclick="goToPage('dr')" id="daily-room-button">ห้องพักรายวัน</button>
-    <button class="option-button" onclick="goToPage('mr')" id="monthly-room-button">ห้องพักรายเดือน</button>
-    <button class="option-button" onclick="goToPage('mc')" id="condo-monthly-button">เช่าคอนโดรายเดือน</button>
+    <button class="option-button" onclick="goToPage('daily-room')" id="daily-room-button">ห้องพักรายวัน</button>
+    <button class="option-button" onclick="goToPage('monthly-room')" id="monthly-room-button">ห้องพักรายเดือน</button>
+    <button class="option-button" onclick="goToPage('condo-monthly')" id="condo-monthly-button">เช่าคอนโดรายเดือน</button>
   </div>
 
   <script>
@@ -123,12 +123,12 @@
     }
 
     function goToPage(type) {
-      if (type === 'dr') {
-        window.location.href = "dr.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายวัน
-      } else if (type === 'mr') {
-        window.location.href = "mr.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายเดือน
-      } else if (type === 'mc') {
-        window.location.href = "mc.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      if (type === 'daily-room') {
+        window.location.href = "daily-room.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายวัน
+      } else if (type === 'monthly-room') {
+        window.location.href = "monthly-room.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายเดือน
+      } else if (type === 'condo-monthly') {
+        window.location.href = "condo-monthly.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
       }
     }
   </script>
