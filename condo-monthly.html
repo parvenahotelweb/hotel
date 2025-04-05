@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คอนโดรายเดือน</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #ffa500;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hotel-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hotel-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 100%;
+      transition: transform 0.3s;
+    }
+
+    .hotel-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .hotel-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .hotel-card .info {
+      padding: 15px;
+    }
+
+    .hotel-card .info h3 {
+      margin: 0 0 10px;
+    }
+
+    .hotel-card .info p {
+      margin: 0 0 10px;
+      color: #666;
+    }
+
+    .hotel-card .info button {
+      background-color: #ffa500;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hotel-card .info button:hover {
+      background-color: #ff8c00;
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+    }
+
+    .language-switch button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .language-switch img {
+      width: 30px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* สำหรับหน้าจอมือถือ */
+    @media (max-width: 768px) {
+      .hotel-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        padding: 10px;
+      }
+
+      .hotel-card {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switch">
+    <button onclick="setLanguage('th')">
+      <img src="thaiflag.jpg" alt="ไทย">
+    </button>
+    <button onclick="setLanguage('en')">
+      <img src="englandflag.png" alt="English">
+    </button>
+    <button onclick="setLanguage('zh')">
+      <img src="chinaflag.png" alt="中文">
+    </button>
+  </div>
+
+  <header>
+    <h1 id="header-text">ห้องพักรายเดือน</h1>
+  </header>
+
+  <div class="hotel-list">
+    <div class="hotel-card">
+      <img src="SathornC.jpg" alt="สาทร คอนโดเพลส">
+      <div class="info">
+        <h3 id="hotel-a">สาทร คอนโดเพลส</h3>
+        <p id="desc-a">ห้องพักสะอาด สะดวกสบาย ใจกลางเมือง</p>
+        <button class="option-button" onclick="goToPage('A')">เข้าชม</button>
+      </div>
+    </div>
+    
+  <script>
+    const translations = {
+      th: {
+        header: "เลือกห้องพักรายวัน",
+        hotelA: "ห้องพัก A",
+      },
+      en: {
+        header: "Daily Room Rentals",
+        hotelA: "Room A",
+      },
+      zh: {
+        header: "每日客房出租",
+        hotelA: "房间 A",
+      }
+    };
+
+    function setLanguage(lang) {
+      const texts = translations[lang];
+      if (texts) {
+        document.getElementById('header-text').innerText = texts.header;
+        document.getElementById('hotel-a').innerText = texts.hotelA;
+        document.getElementById('desc-a').innerText = texts.descA;
+
+        const buttons = document.querySelectorAll('.hotel-card .info button');
+        buttons.forEach(button => {
+          button.innerText = texts.select;
+        });
+      }
+    }
+
+    function goToPage(type) {
+      if (type === 'A') {
+        window.location.href = "CA.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายวัน
+      } 
+    }
+  </script>
+</body>
+</html>

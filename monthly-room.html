@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ห้องพักรายวัน</title>
+  <title>ห้องพักรายเดือน</title>
   <style>
     body {
       margin: 0;
@@ -123,7 +123,7 @@
   </div>
 
   <header>
-    <h1 id="header-text">เลือกห้องพักรายวัน</h1>
+    <h1 id="header-text">ห้องพักรายเดือน</h1>
   </header>
 
   <div class="hotel-list">
@@ -132,7 +132,7 @@
       <div class="info">
         <h3 id="hotel-a">พาร์วีน่า รัชดา</h3>
         <p id="desc-a">ห้องพักสะอาด สะดวกสบาย ใจกลางเมือง</p>
-        <button onclick="selectHotel('พาร์วีน่า รัชดา')">เลือก</button>
+        <button class="option-button" onclick="goToPage('A')">เข้าชม</button>
       </div>
     </div>
 
@@ -141,7 +141,7 @@
       <div class="info">
         <h3 id="hotel-b">ทีจี เพลส</h3>
         <p id="desc-b">วิวสวยงาม ใกล้สถานที่ท่องเที่ยว</p>
-        <button onclick="selectHotel('ทีจี เพลส')">เลือก</button>
+        <button class="option-button" onclick="goToPage('B')">เข้าชม</button>
       </div>
     </div>
 
@@ -150,7 +150,7 @@
       <div class="info">
         <h3 id="hotel-c">บ้านสวนกัลยา</h3>
         <p id="desc-c">บริการประทับใจ ราคาเป็นมิตร</p>
-        <button onclick="selectHotel('บ้านสวนกัลยา')">เลือก</button>
+        <button class="option-button" onclick="goToPage('C')">เข้าชม</button>
       </div>
     </div>
 
@@ -159,7 +159,7 @@
       <div class="info">
         <h3 id="hotel-d">บ้านพิมใจ</h3>
         <p id="desc-d">ห้องพักหรูหรา พร้อมสิ่งอำนวยความสะดวกครบครัน</p>
-        <button onclick="selectHotel('บ้านพิมใจ')">เลือก</button>
+        <button class="option-button" onclick="goToPage('D')">เข้าชม</button>
       </div>
     </div>
   </div>
@@ -221,8 +221,16 @@
       }
     }
 
-    function selectHotel(name) {
-      alert("คุณเลือก " + name);
+    function goToPage(type) {
+      if (type === 'A') {
+        window.location.href = "AM.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายวัน
+      } else if (type === 'B') {
+        window.location.href = "BM.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายเดือน
+      } else if (type === 'C') {
+        window.location.href = "CM.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }else if (type === 'D') {
+        window.location.href = "DM.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }
     }
   </script>
 </body>

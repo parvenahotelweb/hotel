@@ -123,7 +123,7 @@
   </div>
 
   <header>
-    <h1 id="header-text">เลือกห้องพักรายวัน</h1>
+    <h1 id="header-text">ห้องพักรายวัน</h1>
   </header>
 
   <div class="hotel-list">
@@ -132,7 +132,7 @@
       <div class="info">
         <h3 id="hotel-a">โรงแรม พาร์วีน่า สาทร</h3>
         <p id="desc-a">ห้องพักสะอาด สะดวกสบาย ใจกลางเมือง</p>
-        <button onclick="selectHotel('โรงแรม พาร์วีน่า สาทร')">เลือก</button>
+        <button class="option-button" onclick="goToPage('A')">เข้าชม</button>
       </div>
     </div>
 
@@ -141,7 +141,7 @@
       <div class="info">
         <h3 id="hotel-b">บ้านพูลสุข</h3>
         <p id="desc-b">วิวสวยงาม ใกล้สถานที่ท่องเที่ยว</p>
-        <button onclick="selectHotel('บ้านพูลสุข')">เลือก</button>
+        <button class="option-button" onclick="goToPage('B')">เข้าชม</button>
       </div>
     </div>
 
@@ -150,7 +150,7 @@
       <div class="info">
         <h3 id="hotel-c">ไรท์ เพลส</h3>
         <p id="desc-c">บริการประทับใจ ราคาเป็นมิตร</p>
-        <button onclick="selectHotel('ไรท์ เพลส')">เลือก</button>
+        <button class="option-button" onclick="goToPage('C')">เข้าชม</button>
       </div>
     </div>
 
@@ -159,16 +159,16 @@
       <div class="info">
         <h3 id="hotel-d">พาร์วีน่า รัชดา</h3>
         <p id="desc-d">ห้องพักหรูหรา พร้อมสิ่งอำนวยความสะดวกครบครัน</p>
-        <button onclick="selectHotel('พาร์วีน่า รัชดา')">เลือก</button>
+        <button class="option-button" onclick="goToPage('D')">เข้าชม</button>
       </div>
     </div>
 
     <div class="hotel-card">
-      <img src="KT.png" alt="เคที แมนชั่น">
+      <img src="​KT.png" alt="เคที แมนชั่น">
       <div class="info">
         <h3 id="hotel-e">เคที แมนชั่น</h3>
         <p id="desc-e">ห้องพักสะอาด และบริการดี</p>
-        <button onclick="selectHotel('เคที แมนชั่น')">เลือก</button>
+        <button class="option-button" onclick="goToPage('E')">เข้าชม</button>
       </div>
     </div>
 
@@ -177,7 +177,7 @@
       <div class="info">
         <h3 id="hotel-f">บ้านสวนกัลยา</h3>
         <p id="desc-f">ห้องพักขนาดกลาง ราคาประหยัด</p>
-        <button onclick="selectHotel('บ้านสวนกัลยา')">เลือก</button>
+        <button class="option-button" onclick="goToPage('F')">เข้าชม</button>
       </div>
     </div>
 
@@ -186,7 +186,7 @@
       <div class="info">
         <h3 id="hotel-g">ปาวีณา แมนชั่น</h3>
         <p id="desc-g">ที่พักสะดวกสบาย เหมาะสำหรับทุกการเดินทาง</p>
-        <button onclick="selectHotel('ปาวีณา แมนชั่น')">เลือก</button>
+        <button class="option-button" onclick="goToPage('G')">เข้าชม</button>
       </div>
     </div>
   </div>
@@ -275,8 +275,22 @@
       }
     }
 
-    function selectHotel(name) {
-      alert("คุณเลือก " + name);
+    function goToPage(type) {
+      if (type === 'A') {
+        window.location.href = "AD.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายวัน
+      } else if (type === 'B') {
+        window.location.href = "BD.html"; // เปลี่ยนเส้นทางไปหน้าห้องพักรายเดือน
+      } else if (type === 'C') {
+        window.location.href = "CD.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }else if (type === 'D') {
+        window.location.href = "DD.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }else if (type === 'E') {
+        window.location.href = "ED.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }else if (type === 'F') {
+        window.location.href = "FD.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }else if (type === 'G') {
+        window.location.href = "GD.html"; // เปลี่ยนเส้นทางไปหน้าเช่าคอนโดรายเดือน
+      }
     }
   </script>
 </body>
